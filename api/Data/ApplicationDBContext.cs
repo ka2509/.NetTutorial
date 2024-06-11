@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using api.Models;
 using Microsoft.EntityFrameworkCore;
 
-
 //we need to config the database at this file
 // Map the database to the actual code
 //database connection at json file
@@ -21,6 +20,7 @@ namespace api.Data
         {
         }
 
+        //This name of below DbSet is the name of table in database
         public DbSet<Stock> Stock {get; set; }
         public DbSet<Comment> Comments {get; set; }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using api.Data;
+using api.Mappers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers
@@ -21,7 +22,9 @@ namespace api.Controllers
         public IActionResult GetAll() {
             // read about deferred execution
             // So the query is not executed when it is defined or when its methods are called. So at this point, we need an ToList() to actually get the data out.
-            var stocks = _context.Stock.ToList();
+            // Code line below is creating a list of 'Stock' entites then apply the ToStockDto() method to every index of that list. So we have a list of StockDto 
+            var stocks = _context.Stock.ToList()
+                .Select(s => s.ToStockDto());
             return Ok(stocks);
         }
         [HttpGet("{id}")]
@@ -32,6 +35,6 @@ namespace api.Controllers
             }
             return Ok(stock);
         }
-        
+
     }
 }
