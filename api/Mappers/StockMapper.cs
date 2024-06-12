@@ -6,6 +6,7 @@ using api.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using api.Dtos.StockD;
+using System.Runtime.CompilerServices;
 namespace api.Mappers
 {
     public static class StockMapper
@@ -19,6 +20,16 @@ namespace api.Mappers
                 LastDiv = stockModel.LastDiv,
                 Industry = stockModel.Industry,
                 MarketCap = stockModel.MarketCap
+            };
+        }
+        public static Stock ToStockFromCreateDTO(this CreateStockRequestDto stockDto) {
+            return new Stock {
+                Symbol = stockDto.Symbol,
+                CompanyName = stockDto.CompanyName,
+                Purchase = stockDto.Purchase,
+                LastDiv = stockDto.LastDiv,
+                Industry = stockDto.Industry,
+                MarketCap = stockDto.MarketCap
             };
         }
     }
