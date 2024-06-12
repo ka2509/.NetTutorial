@@ -7,6 +7,7 @@ using api.Mappers;
 using Microsoft.AspNetCore.Mvc;
 using api.Dtos.StockD;
 using Microsoft.EntityFrameworkCore;
+using api.Interfaces;
 
 namespace api.Controllers
 {
@@ -15,8 +16,10 @@ namespace api.Controllers
     public class StockController : ControllerBase
     {
         private readonly ApplicationDBContext _context;
-        public StockController(ApplicationDBContext context)
+        private readonly IStockRepository _stockRepo;
+        public StockController(ApplicationDBContext context, IStockRepository stockRepository)
         {
+            _stockRepo = stockRepository;
             _context = context;
         }
 
@@ -25,9 +28,10 @@ namespace api.Controllers
             // read about deferred execution
             // So the query is not executed when it is defined or when its methods are called. So at this point, we need an ToList() to actually get the data out.
             // Code line below is creating a list of 'Stock' entites then apply the ToStockDto() method to every index of that list. So we have a list of StockDto 
-            var stocks = (await _context.Stock.ToListAsync())
-                .Select(s => s.ToStockDto());
-            return Ok(stocks);
+            var stocks = await _stockRepo.GetAllAsync();
+
+            var stocksDto = stocks.Select(s => s.ToStockDto());
+            return Ok(stocksDto);
         }
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById([FromRoute] int id) {
