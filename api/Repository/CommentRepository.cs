@@ -25,6 +25,17 @@ namespace api.Repository
             return commentModel;
         }
 
+        public async Task<Comment?> DeleteAsync(int id)
+        {
+            var comment = await _context.Comments.FirstOrDefaultAsync(c => c.Id == id);
+            if(comment == null) {
+                return null;
+            }
+            _context.Comments.Remove(comment);
+            await _context.SaveChangesAsync();
+            return comment;
+        }
+
         public async Task<List<Comment>> GetAllSync()
         {
             
