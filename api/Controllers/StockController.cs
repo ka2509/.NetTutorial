@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using api.Dtos.StockD;
 using Microsoft.EntityFrameworkCore;
 using api.Interfaces;
+using api.Helpers;
 
 namespace api.Controllers
 {
@@ -24,13 +25,13 @@ namespace api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll() {
+        public async Task<IActionResult> GetAll([FromQuery] QueryObject query) {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
             // read about deferred execution
             // So the query is not executed when it is defined or when its methods are called. So at this point, we need an ToList() to actually get the data out.
             // Code line below is creating a list of 'Stock' entites then apply the ToStockDto() method to every index of that list. So we have a list of StockDto 
-            var stocks = await _stockRepo.GetAllAsync();
+            var stocks = await _stockRepo.GetAllAsync(query);
 
             var stocksDto = stocks.Select(s => s.ToStockDto());
             return Ok(stocksDto);
