@@ -9,5 +9,6 @@ namespace api.Interfaces
     {
         Task<List<Comment>> GetAllSync();
         Task<Comment?> GetByIdSync(int id);
+        Task<Comment> CreateAsync(Comment commentModel);
     }
 }
