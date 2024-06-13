@@ -11,6 +11,11 @@ builder.Configuration.AddJsonFile("Properties/launchSettings.json", optional: fa
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+// avoid object circle like JsonIgnore in spring boot
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+{
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+});
 
 // Register ApplicationDBContext with dependency injection
 builder.Services.AddDbContext<ApplicationDBContext>(options =>

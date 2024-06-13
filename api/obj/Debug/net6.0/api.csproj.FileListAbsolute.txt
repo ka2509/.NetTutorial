@@ -6,6 +6,8 @@ D:\DotNetTutorial\api\bin\Debug\net6.0\api.runtimeconfig.json
 D:\DotNetTutorial\api\bin\Debug\net6.0\api.dll
 D:\DotNetTutorial\api\bin\Debug\net6.0\api.pdb
 D:\DotNetTutorial\api\bin\Debug\net6.0\Humanizer.dll
+D:\DotNetTutorial\api\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\DotNetTutorial\api\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 D:\DotNetTutorial\api\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 D:\DotNetTutorial\api\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
 D:\DotNetTutorial\api\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -20,6 +22,8 @@ D:\DotNetTutorial\api\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdC
 D:\DotNetTutorial\api\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 D:\DotNetTutorial\api\bin\Debug\net6.0\Microsoft.OpenApi.dll
 D:\DotNetTutorial\api\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\DotNetTutorial\api\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\DotNetTutorial\api\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
 D:\DotNetTutorial\api\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\DotNetTutorial\api\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\DotNetTutorial\api\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
