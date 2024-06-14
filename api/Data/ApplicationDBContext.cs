@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using api.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,13 +13,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace api.Data
 {
-    public class ApplicationDBContext : IdentityDbContext
+    public class ApplicationDBContext : IdentityDbContext<AppUser>
     {
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
-        public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options)
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
-            : base(options)
+        public ApplicationDBContext(DbContextOptions dbContextOptions)
+        : base(dbContextOptions)
         {
+
         }
 
         //This name of below DbSet is the name of table in database
@@ -27,12 +27,24 @@ namespace api.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
+            List<IdentityRole> roles = new List<IdentityRole> {
+                new IdentityRole {
+                    Name = "Admin",
+                    NormalizedName = "admin"
+                },
+                new IdentityRole {
+                    Name = "User",
+                    NormalizedName = "user"
+                }
+            };
+            modelBuilder.Entity<IdentityRole>().HasData(roles);
             modelBuilder.Entity<Stock>()
                 .HasMany(s => s.Comments)
                 .WithOne(c => c.Stock)
                 .HasForeignKey(c => c.StockId)
                 .OnDelete(DeleteBehavior.Cascade);
+            
+
         }
     }
 }

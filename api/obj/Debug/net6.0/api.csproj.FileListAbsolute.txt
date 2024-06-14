@@ -6,6 +6,8 @@ D:\DotNetTutorial\api\bin\Debug\net6.0\api.runtimeconfig.json
 D:\DotNetTutorial\api\bin\Debug\net6.0\api.dll
 D:\DotNetTutorial\api\bin\Debug\net6.0\api.pdb
 D:\DotNetTutorial\api\bin\Debug\net6.0\Humanizer.dll
+D:\DotNetTutorial\api\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\DotNetTutorial\api\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 D:\DotNetTutorial\api\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
 D:\DotNetTutorial\api\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 D:\DotNetTutorial\api\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
@@ -62,5 +64,3 @@ D:\DotNetTutorial\api\obj\Debug\net6.0\refint\api.dll
 D:\DotNetTutorial\api\obj\Debug\net6.0\api.pdb
 D:\DotNetTutorial\api\obj\Debug\net6.0\api.genruntimeconfig.cache
 D:\DotNetTutorial\api\obj\Debug\net6.0\ref\api.dll
-D:\DotNetTutorial\api\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-D:\DotNetTutorial\api\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
