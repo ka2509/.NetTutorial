@@ -9,6 +9,7 @@ using api.Dtos.StockD;
 using Microsoft.EntityFrameworkCore;
 using api.Interfaces;
 using api.Helpers;
+using Microsoft.AspNetCore.Authorization;
 
 namespace api.Controllers
 {
@@ -18,13 +19,14 @@ namespace api.Controllers
     {
         
         private readonly IStockRepository _stockRepo;
-        public StockController(ApplicationDBContext context, IStockRepository stockRepository)
+        public StockController(IStockRepository stockRepository)
         {
             _stockRepo = stockRepository;
 
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAll([FromQuery] QueryObject query) {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
